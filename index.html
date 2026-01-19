@@ -139,14 +139,14 @@
         .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
         .cta-section h2 { font-size: 2.8rem; color: var(--white); margin-bottom: 20px; }
 
-        /* --- CARROSEL INFINITO (Atualizado para Faixa Dupla e Invertida) --- */
+        /* --- CARROSEL INFINITO (Atualizado) --- */
         .infinite-gallery { 
             padding: 80px 0; 
             background: var(--light); 
             overflow: hidden; 
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Espaço entre as duas linhas */
+            gap: 30px; 
         }
 
         .marquee-wrapper { 
@@ -159,22 +159,19 @@
         .marquee-track { 
             display: flex; 
             width: max-content; 
-            /* 9 fotos * 230px (200px largura + 30px margem) = 2070px */
         }
 
-        /* Animação para a Esquerda (Linha 1) */
         .scroll-normal {
             animation: scrollNormal 40s linear infinite;
         }
 
-        /* Animação para a Direita (Linha 2 - Invertida) */
         .scroll-reverse {
             animation: scrollReverse 40s linear infinite;
         }
 
         .gallery-item { 
-            width: 200px; /* Reduzido de 300px */
-            height: 200px; /* Reduzido de 300px */
+            width: 200px; 
+            height: 200px; 
             margin: 0 15px; 
             border-radius: 20px; 
             overflow: hidden; 
@@ -193,16 +190,17 @@
 
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* Pausa a animação ao passar o mouse */
         .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
 
+        /* AJUSTE PARA LINHA SUPERIOR (8 Fotos) */
         @keyframes scrollNormal { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(-2070px); } 
+            100% { transform: translateX(-1840px); } /* 8 fotos * 230px = 1840px */
         }
 
+        /* AJUSTE PARA LINHA INFERIOR (9 Fotos - Mantido) */
         @keyframes scrollReverse { 
-            0% { transform: translateX(-2070px); } 
+            0% { transform: translateX(-2070px); } /* 9 fotos * 230px = 2070px */
             100% { transform: translateX(0); } 
         }
 
@@ -525,6 +523,3 @@
 </body>
 
 </html>
-
-
-
