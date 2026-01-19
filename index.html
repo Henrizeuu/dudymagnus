@@ -132,6 +132,8 @@
         .service-card { background: var(--white); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .service-card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: var(--shadow); }
         .service-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        /* CORREÇÃO DO ESPAÇAMENTO DOS TÍTULOS NOS CARDS */
+        .service-card h3 { margin-bottom: 15px; }
 
         /* --- CTA BANNER --- */
         .cta-section { background: var(--gradient); color: var(--white); text-align: center; position: relative; overflow: hidden; }
@@ -247,9 +249,14 @@
         </div>
         <div class="about-text" data-aos="fade-left">
             <div class="section-title" style="text-align: left; margin-bottom: 30px;"><h2>Muito mais que um banho</h2></div>
-            <p style="margin-bottom: 20px;">Na Dudy Magnus, seu bichinho é família. Criamos um ambiente seguro, climatizado e livre de estresse.
+            
+            <div style="margin-bottom: 25px; color: var(--gray);">
+                <p style="margin-bottom: 12px;">Somos apaixonadas pelo que fazemos. Nossa empresa nasceu do amor, do cuidado e do respeito por cada cliente que confia em nosso trabalho.</p>
+                <p style="margin-bottom: 12px;">Acreditamos que cada atendimento deve ser único, feito com atenção aos detalhes, profissionalismo e muito carinho. Trabalhamos diariamente para oferecer serviços de alta qualidade, priorizando o bem-estar, a segurança e a satisfação de quem atendemos.</p>
+                <p style="margin-bottom: 12px;">Nossa missão é ir além do esperado, entregando não apenas um serviço, mas uma experiência de confiança, acolhimento e excelência. Buscamos constante aperfeiçoamento, investindo em conhecimento, técnicas atualizadas e produtos de qualidade.</p>
+                <p>Mais do que uma empresa, somos uma equipe comprometida em transformar cuidado em resultados e construir relações duradouras com nossos clientes.</p>
+            </div>
 
-</p>
             <ul style="margin-bottom: 30px;">
                 <li><i class="fa-solid fa-check" style="color: var(--secondary);"></i> Produtos hipoalergênicos</li>
                 <li><i class="fa-solid fa-check" style="color: var(--secondary);"></i> Toalhas esterilizadas</li>
@@ -315,6 +322,39 @@
         </div>
     </section>
 
+    <section class="section-padding" style="background-color: var(--white);">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Nossa Essência</h2>
+            <p>Os pilares que guiam nosso trabalho diariamente.</p>
+        </div>
+        <div class="services-grid">
+            
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Nossa Missão</h3>
+                <p>Oferecer serviços com excelência, carinho e responsabilidade, garantindo qualidade e confiança em cada atendimento.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon"><i class="fa-solid fa-eye"></i></div>
+                <h3>Nossa Visão</h3>
+                <p>Ser referência no mercado pelo cuidado, profissionalismo e dedicação.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>Nossos Valores</h3>
+                <ul style="text-align: left; display: inline-block;">
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Amor pelo que fazemos</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Respeito e ética</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Compromisso com a qualidade</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Transparência</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Atendimento humanizado</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
     <section id="gallery" class="infinite-gallery">
         <div class="section-title" data-aos="fade-up">
             <h2>Galeria dos Aumigos</h2>
@@ -393,7 +433,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Dudy Magnus Estética Animal. Todos direitos reservados.</p>
+            <p>© 2026 Dudy Magnus Estética Animal. Todos direitos reservados.</p>
             <span class="dev-signature">Desenvolvido por <strong>EPIVERSO</strong></span>
         </div>
     </footer>
@@ -409,6 +449,3 @@
 </body>
 
 </html>
-
-
-
