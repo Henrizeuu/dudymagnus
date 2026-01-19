@@ -98,7 +98,6 @@
         .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 40px; max-width: 450px; }
         
         .hero-image { position: relative; height: 100%; width: 100%; display: flex; align-items: flex-end; justify-content: center; background-color: var(--white); }
-        /* Removido o balanço (animação subtleFloat) */
         .hero-image img { width: auto; height: 90%; object-fit: contain; }
 
         /* --- ICONS STRIP --- */
@@ -132,7 +131,6 @@
         .service-card { background: var(--white); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .service-card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: var(--shadow); }
         .service-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-        /* CORREÇÃO DO ESPAÇAMENTO DOS TÍTULOS NOS CARDS */
         .service-card h3 { margin-bottom: 15px; }
 
         /* --- CTA BANNER --- */
@@ -141,23 +139,72 @@
         .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
         .cta-section h2 { font-size: 2.8rem; color: var(--white); margin-bottom: 20px; }
 
-        /* --- CARROSEL INFINITO (Corrigido para Loop Perfeito) --- */
-        .infinite-gallery { padding: 80px 0; background: var(--light); overflow: hidden; }
-        .marquee-wrapper { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
+        /* --- CARROSEL INFINITO (Atualizado para Faixa Dupla e Invertida) --- */
+        .infinite-gallery { 
+            padding: 80px 0; 
+            background: var(--light); 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Espaço entre as duas linhas */
+        }
+
+        .marquee-wrapper { 
+            width: 100%; 
+            overflow: hidden; 
+            white-space: nowrap; 
+            position: relative; 
+        }
+
         .marquee-track { 
             display: flex; 
             width: max-content; 
-            animation: scroll 30s linear infinite; 
+            /* 9 fotos * 330px (largura+margem) = 2970px */
         }
-        .gallery-item { width: 300px; height: 300px; margin: 0 15px; border-radius: 20px; overflow: hidden; position: relative; flex-shrink: 0; background: #ddd; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+
+        /* Animação para a Esquerda (Linha 1) */
+        .scroll-normal {
+            animation: scrollNormal 40s linear infinite;
+        }
+
+        /* Animação para a Direita (Linha 2 - Invertida) */
+        .scroll-reverse {
+            animation: scrollReverse 40s linear infinite;
+        }
+
+        .gallery-item { 
+            width: 300px; 
+            height: 300px; 
+            margin: 0 15px; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            flex-shrink: 0; 
+            background: #ddd; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: 0.3s; 
+        }
+
         .gallery-item:hover img { transform: scale(1.1); }
-        
-        @keyframes scroll { 
+
+        /* Pausa a animação ao passar o mouse */
+        .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
+
+        @keyframes scrollNormal { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(calc(-330px * 7)); } /* 300px largura + 30px margin x 7 fotos */
+            100% { transform: translateX(-2970px); } 
         }
-        .marquee-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollReverse { 
+            0% { transform: translateX(-2970px); } 
+            100% { transform: translateX(0); } 
+        }
 
         /* --- FAQ --- */
         .faq { background: var(--white); max-width: 900px; margin: 40px auto; padding: 0 5%; }
@@ -252,8 +299,8 @@
             
             <div style="margin-bottom: 25px; color: var(--gray);">
                 <p style="margin-bottom: 12px;">Somos apaixonadas pelo que fazemos. Nossa empresa nasceu do amor, do cuidado e do respeito por cada cliente que confia em nosso trabalho.</p>
-                <p style="margin-bottom: 12px;">Acreditamos em atendimentos únicos, marcados pelo profissionalismo e atenção aos detalhes. Trabalhamos todos os dias para garantir alta qualidade, priorizando sempre seu bem-estar, segurança e satisfação.</p>
-                <p style="margin-bottom: 12px;">Nossa missão é superar expectativas, entregando uma experiência de confiança e excelência. Buscamos aperfeiçoamento constante, investindo sempre em conhecimento técnico e nos melhores produtos.</p>
+                <p style="margin-bottom: 12px;">Acreditamos que cada atendimento deve ser único, feito com atenção aos detalhes, profissionalismo e muito carinho. Trabalhamos diariamente para oferecer serviços de alta qualidade, priorizando o bem-estar, a segurança e a satisfação de quem atendemos.</p>
+                <p style="margin-bottom: 12px;">Nossa missão é ir além do esperado, entregando não apenas um serviço, mas uma experiência de confiança, acolhimento e excelência. Buscamos constante aperfeiçoamento, investindo em conhecimento, técnicas atualizadas e produtos de qualidade.</p>
                 <p>Mais do que uma empresa, somos uma equipe comprometida em transformar cuidado em resultados e construir relações duradouras com nossos clientes.</p>
             </div>
 
@@ -355,27 +402,55 @@
 
         </div>
     </section>
+
     <section id="gallery" class="infinite-gallery">
         <div class="section-title" data-aos="fade-up">
             <h2>Galeria dos Aumigos</h2>
             <p>Confira nossos clientes desfilando estilo.</p>
         </div>
+    
         <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="gallery-item"><img src="foto4.jpg" alt="Pet 4"></div>
-                <div class="gallery-item"><img src="foto5.jpg" alt="Pet 5"></div>
-                <div class="gallery-item"><img src="foto6.jpg" alt="Pet 6"></div>
-                <div class="gallery-item"><img src="foto7.jpg" alt="Pet 7"></div>
-                <div class="gallery-item"><img src="foto8.jpg" alt="Pet 8"></div>
-                <div class="gallery-item"><img src="foto9.jpg" alt="Pet 9"></div>
-                <div class="gallery-item"><img src="foto10.jpg" alt="Pet 10"></div>
-                <div class="gallery-item"><img src="foto4.jpg" alt="Pet 4"></div>
-                <div class="gallery-item"><img src="foto5.jpg" alt="Pet 5"></div>
-                <div class="gallery-item"><img src="foto6.jpg" alt="Pet 6"></div>
-                <div class="gallery-item"><img src="foto7.jpg" alt="Pet 7"></div>
-                <div class="gallery-item"><img src="foto8.jpg" alt="Pet 8"></div>
-                <div class="gallery-item"><img src="foto9.jpg" alt="Pet 9"></div>
-                <div class="gallery-item"><img src="foto10.jpg" alt="Pet 10"></div>
+            <div class="marquee-track scroll-normal">
+                <div class="gallery-item"><img src="foto4.webp" alt="Pet 4"></div>
+                <div class="gallery-item"><img src="foto5.webp" alt="Pet 5"></div>
+                <div class="gallery-item"><img src="foto6.webp" alt="Pet 6"></div>
+                <div class="gallery-item"><img src="foto7.webp" alt="Pet 7"></div>
+                <div class="gallery-item"><img src="foto8.webp" alt="Pet 8"></div>
+                <div class="gallery-item"><img src="foto9.webp" alt="Pet 9"></div>
+                <div class="gallery-item"><img src="foto10.webp" alt="Pet 10"></div>
+                <div class="gallery-item"><img src="foto11.webp" alt="Pet 11"></div> <div class="gallery-item"><img src="foto12.jpg" alt="Pet 12"></div> <div class="gallery-item"><img src="foto4.jpg" alt="Pet 4"></div>
+                <div class="gallery-item"><img src="foto5.webp" alt="Pet 5"></div>
+                <div class="gallery-item"><img src="foto6.webp" alt="Pet 6"></div>
+                <div class="gallery-item"><img src="foto7.webp" alt="Pet 7"></div>
+                <div class="gallery-item"><img src="foto8.webp" alt="Pet 8"></div>
+                <div class="gallery-item"><img src="foto9.webp" alt="Pet 9"></div>
+                <div class="gallery-item"><img src="foto10.webp" alt="Pet 10"></div>
+                <div class="gallery-item"><img src="foto11.webp" alt="Pet 11"></div>
+                <div class="gallery-item"><img src="foto12.webp" alt="Pet 12"></div>
+            </div>
+        </div>
+    
+        <div class="marquee-wrapper">
+            <div class="marquee-track scroll-reverse">
+                <div class="gallery-item"><img src="foto13.webp" alt="Pet 13"></div>
+                <div class="gallery-item"><img src="foto14.webp" alt="Pet 14"></div>
+                <div class="gallery-item"><img src="foto15.webp" alt="Pet 15"></div>
+                <div class="gallery-item"><img src="foto16.webp" alt="Pet 16"></div>
+                <div class="gallery-item"><img src="foto17.webp" alt="Pet 17"></div>
+                <div class="gallery-item"><img src="foto18.webp" alt="Pet 18"></div>
+                <div class="gallery-item"><img src="foto19.webp" alt="Pet 19"></div>
+                <div class="gallery-item"><img src="foto20.webp" alt="Pet 20"></div>
+                <div class="gallery-item"><img src="foto21.webp" alt="Pet 21"></div>
+    
+                <div class="gallery-item"><img src="foto13.webp" alt="Pet 13"></div>
+                <div class="gallery-item"><img src="foto14.webp" alt="Pet 14"></div>
+                <div class="gallery-item"><img src="foto15.webp" alt="Pet 15"></div>
+                <div class="gallery-item"><img src="foto16.webp" alt="Pet 16"></div>
+                <div class="gallery-item"><img src="foto17.webp" alt="Pet 17"></div>
+                <div class="gallery-item"><img src="foto18.webp" alt="Pet 18"></div>
+                <div class="gallery-item"><img src="foto19.webp alt="Pet 19"></div>
+                <div class="gallery-item"><img src="foto20.webp" alt="Pet 20"></div>
+                <div class="gallery-item"><img src="foto21.webp" alt="Pet 21"></div>
             </div>
         </div>
     </section>
@@ -449,4 +524,3 @@
 </body>
 
 </html>
-
