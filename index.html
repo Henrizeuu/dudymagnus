@@ -159,7 +159,7 @@
         .marquee-track { 
             display: flex; 
             width: max-content; 
-            /* 9 fotos * 330px (largura+margem) = 2970px */
+            /* 9 fotos * 230px (200px largura + 30px margem) = 2070px */
         }
 
         /* Animação para a Esquerda (Linha 1) */
@@ -173,8 +173,8 @@
         }
 
         .gallery-item { 
-            width: 300px; 
-            height: 300px; 
+            width: 200px; /* Reduzido de 300px */
+            height: 200px; /* Reduzido de 300px */
             margin: 0 15px; 
             border-radius: 20px; 
             overflow: hidden; 
@@ -198,11 +198,11 @@
 
         @keyframes scrollNormal { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(-2970px); } 
+            100% { transform: translateX(-2070px); } /* Ajustado para o novo tamanho */
         }
 
         @keyframes scrollReverse { 
-            0% { transform: translateX(-2970px); } 
+            0% { transform: translateX(-2070px); } /* Ajustado para o novo tamanho */
             100% { transform: translateX(0); } 
         }
 
@@ -524,4 +524,3 @@
 </body>
 
 </html>
-
