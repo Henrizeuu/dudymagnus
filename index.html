@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dudy Magnus | Estética Animal</title>
+    
+    <title>Banho e Tosa em São João do Sul | Dudy Magnus Estética Animal</title>
+    <meta name="description" content="Agende banho e tosa com Dudy Magnus em São João do Sul. Especialista em estética animal, táxi dog e tosa na tesoura. Cuide do seu pet com amor e segurança!">
+    
+    <meta property="og:title" content="Banho e Tosa em São João do Sul | Dudy Magnus">
+    <meta property="og:description" content="Agende banho e tosa com Dudy Magnus. Táxi dog e tosa na tesoura. Cuide do seu pet com amor!">
+    <meta property="og:image" content="foto1.png"> <meta property="og:url" content=""> <meta property="og:type" content="website">
 
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     
@@ -14,6 +20,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PetStore",
+      "name": "Dudy Magnus Estética Animal",
+      "image": "foto1.png", 
+      "description": "Estética animal especializada em banho, tosa e táxi dog em São João do Sul.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Anselmo Borba, 212",
+        "addressLocality": "São João do Sul",
+        "addressRegion": "SC",
+        "postalCode": "88970-000",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5548988034348",
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00"
+    }
+    </script>
 
     <style>
         /* --- VARIÁVEIS & RESET --- */
@@ -89,12 +115,15 @@
         nav a { font-weight: 600; font-size: 0.95rem; color: var(--dark); }
         nav a:hover { color: var(--primary); }
         
-        /* --- HERO SECTION (Foto 1 PNG Estática) --- */
+        /* --- HERO SECTION --- */
         .hero { display: grid; grid-template-columns: 1fr 1fr; height: 100vh; width: 100%; overflow: hidden; padding-top: 80px; }
         .hero-content { padding: 0 10% 0 15%; display: flex; flex-direction: column; justify-content: center; background-color: var(--white); }
         .pre-title { color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; color: var(--dark); margin-bottom: 25px; }
+        
+        /* Ajuste do H1 para SEO */
+        .hero h1 { font-size: 3.2rem; line-height: 1.1; color: var(--dark); margin-bottom: 25px; text-transform: uppercase; }
         .hero h1 span { color: var(--primary); }
+        
         .hero p { font-size: 1.1rem; color: var(--gray); margin-bottom: 40px; max-width: 450px; }
         
         .hero-image { position: relative; height: 100%; width: 100%; display: flex; align-items: flex-end; justify-content: center; background-color: var(--white); }
@@ -139,7 +168,7 @@
         .cta-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
         .cta-section h2 { font-size: 2.8rem; color: var(--white); margin-bottom: 20px; }
 
-        /* --- CARROSEL INFINITO (Atualizado) --- */
+        /* --- CARROSEL INFINITO --- */
         .infinite-gallery { 
             padding: 80px 0; 
             background: var(--light); 
@@ -192,15 +221,13 @@
 
         .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
 
-        /* AJUSTE PARA LINHA SUPERIOR (8 Fotos) */
         @keyframes scrollNormal { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(-1840px); } /* 8 fotos * 230px = 1840px */
+            100% { transform: translateX(-1840px); } 
         }
 
-        /* AJUSTE PARA LINHA INFERIOR (9 Fotos - Mantido) */
         @keyframes scrollReverse { 
-            0% { transform: translateX(-2070px); } /* 9 fotos * 230px = 2070px */
+            0% { transform: translateX(-2070px); } 
             100% { transform: translateX(0); } 
         }
 
@@ -214,6 +241,7 @@
 
         /* --- MAP SECTION --- */
         .map-section { width: 100%; background: var(--white); border: none; }
+        /* Ajuste do iframe para ficar responsivo e cinza */
         .map-section iframe { width: 100%; height: 450px; border: 0; filter: grayscale(0.2) contrast(1.1); display: block; }
 
         /* --- FOOTER --- */
@@ -226,7 +254,8 @@
         .social-links a:hover { background: var(--secondary); }
         .copyright { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.9; }
         .dev-signature { display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.9); }
-        .dev-signature strong { color: var(--secondary); font-weight: 800; }
+        .dev-signature a { color: var(--secondary); font-weight: 800; text-decoration: none;}
+        .dev-signature a:hover { color: var(--white); text-decoration: underline;}
         
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: #FFF; border-radius: 50%; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1000; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
@@ -235,7 +264,7 @@
             .hero { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
             .hero-content { order: 1; padding: 60px 5%; text-align: center; align-items: center; }
             .hero-image { order: 2; height: 50vh; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; } /* Ajuste de fonte mobile */
             .about, .groomer-section { grid-template-columns: 1fr; text-align: center; }
             .groomer-image-container { height: 400px; order: 2; }
             .groomer-content { padding: 60px 5%; order: 1; align-items: center; }
@@ -246,8 +275,7 @@
 <body>
 
     <div class="watermark-overlay">
-        
-    </div>
+        </div>
 
     <header>
         <a href="#" class="logo"><i class="fa-solid fa-paw"></i> DUDY MAGNUS</a>
@@ -267,12 +295,14 @@
     <section id="hero" class="hero">
         <div class="hero-content" data-aos="fade-right">
             <span class="pre-title">Estética Animal em São João do Sul</span>
-            <h1>SEU MELHOR AMIGO MERECE O <span style="color: var(--secondary);">MELHOR.</span></h1>
+            <h1>BANHO E TOSA EM <span style="color: var(--secondary);">SÃO JOÃO DO SUL</span></h1>
+            
+            <p style="font-weight: 700; color: var(--secondary); margin-bottom: 10px;">SEU MELHOR AMIGO MERECE O MELHOR.</p>
             <p>Cuidando com amor e carinho desde 2017. Banho, Tosa, Táxi Dog e produtos de qualidade para seu pet ficar lindo e saudável.</p>
             <a href="https://wa.me/554888034348?text=Olá!%20Vim%20do%20site.%20Gostaria%20de%20agendar%20um%20banho%20e%20tosa." target="_blank" class="btn btn-primary">Agendar Agora <i class="fa-solid fa-arrow-right"></i></a>
         </div>
         <div class="hero-image" data-aos="fade-up">
-            <img src="foto1.png" alt="Cachorro Feliz">
+            <img src="foto1.png" alt="Cachorro feliz após banho e tosa em São João do Sul">
         </div>
     </section>
 
@@ -290,15 +320,14 @@
 
     <section id="about" class="section-padding about">
         <div class="about-img-wrapper" data-aos="fade-right">
-            <div class="about-img"><img src="foto2.jpg" alt="Estética Animal"></div>
+            <div class="about-img"><img src="foto2.jpg" alt="Equipe de Estética Animal Dudy Magnus"></div>
         </div>
         <div class="about-text" data-aos="fade-left">
             <div class="section-title" style="text-align: left; margin-bottom: 30px;"><h2>Muito mais que um banho</h2></div>
             
             <div style="margin-bottom: 25px; color: var(--gray);">
                 <p style="margin-bottom: 12px;">Somos apaixonadas pelo que fazemos. Nossa empresa nasceu do amor, do cuidado e do respeito por cada cliente que confia em nosso trabalho.</p>
-                <p style="margin-bottom: 12px;">Acreditamos que cada atendimento deve ser único, feito com atenção aos detalhes, profissionalismo e muito carinho. Trabalhamos diariamente para oferecer serviços de alta qualidade, priorizando o bem-estar, a segurança e a satisfação de quem atendemos.</p>
-                <p style="margin-bottom: 12px;">Nossa missão é ir além do esperado, entregando não apenas um serviço, mas uma experiência de confiança, acolhimento e excelência. Buscamos constante aperfeiçoamento, investindo em conhecimento, técnicas atualizadas e produtos de qualidade.</p>
+                <p style="margin-bottom: 12px;">Acreditamos que cada atendimento deve ser único, feito com atenção aos detalhes, profissionalismo e muito carinho. Trabalhamos diariamente para oferecer serviços de alta qualidade.</p>
                 <p>Mais do que uma empresa, somos uma equipe comprometida em transformar cuidado em resultados e construir relações duradouras com nossos clientes.</p>
             </div>
 
@@ -325,7 +354,7 @@
             <a href="https://wa.me/554888034348?text=Olá!%20Vim%20do%20site.%20Gostaria%20de%20agendar%20um%20banho%20e%20tosa." target="_blank" class="btn btn-gold">Agendar com a Expert</a>
         </div>
         <div class="groomer-image-container" data-aos="fade-left">
-            <img src="foto3.jpg" alt="Groomer Dudy Magnus">
+            <img src="foto3.jpg" alt="Groomer Dudy Magnus cuidando de um pet">
         </div>
     </section>
 
@@ -374,19 +403,16 @@
             <p>Os pilares que guiam nosso trabalho diariamente.</p>
         </div>
         <div class="services-grid">
-            
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
                 <h3>Nossa Missão</h3>
                 <p>Oferecer serviços com excelência, carinho e responsabilidade, garantindo qualidade e confiança em cada atendimento.</p>
             </div>
-
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-icon"><i class="fa-solid fa-eye"></i></div>
                 <h3>Nossa Visão</h3>
                 <p>Ser referência no mercado pelo cuidado, profissionalismo e dedicação.</p>
             </div>
-
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
                 <h3>Nossos Valores</h3>
@@ -395,10 +421,8 @@
                     <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Respeito e ética</li>
                     <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Compromisso com a qualidade</li>
                     <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Transparência</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--secondary); margin-right: 5px;"></i> Atendimento humanizado</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
@@ -410,47 +434,47 @@
     
         <div class="marquee-wrapper">
             <div class="marquee-track scroll-normal">
-                <div class="gallery-item"><img src="foto5.webp" alt="Pet 5"></div>
-                <div class="gallery-item"><img src="foto6.webp" alt="Pet 6"></div>
-                <div class="gallery-item"><img src="foto7.webp" alt="Pet 7"></div>
-                <div class="gallery-item"><img src="foto8.webp" alt="Pet 8"></div>
-                <div class="gallery-item"><img src="foto9.webp" alt="Pet 9"></div>
-                <div class="gallery-item"><img src="foto10.webp" alt="Pet 10"></div>
-                <div class="gallery-item"><img src="foto11.webp" alt="Pet 11"></div> 
-                <div class="gallery-item"><img src="foto12.webp" alt="Pet 12"></div> 
+                <div class="gallery-item"><img src="foto5.webp" alt="Banho e Tosa em cachorro pequeno porte"></div>
+                <div class="gallery-item"><img src="foto6.webp" alt="Pet shop São João do Sul"></div>
+                <div class="gallery-item"><img src="foto7.webp" alt="Cachorro tosado na tesoura"></div>
+                <div class="gallery-item"><img src="foto8.webp" alt="Hidratação em pelos de cachorro"></div>
+                <div class="gallery-item"><img src="foto9.webp" alt="Estética Animal Dudy Magnus"></div>
+                <div class="gallery-item"><img src="foto10.webp" alt="Tosa higiênica em cachorro"></div>
+                <div class="gallery-item"><img src="foto11.webp" alt="Cachorro finalizado com laço"></div> 
+                <div class="gallery-item"><img src="foto12.webp" alt="Banho relaxante para pets"></div> 
                 
-                <div class="gallery-item"><img src="foto5.webp" alt="Pet 5"></div>
-                <div class="gallery-item"><img src="foto6.webp" alt="Pet 6"></div>
-                <div class="gallery-item"><img src="foto7.webp" alt="Pet 7"></div>
-                <div class="gallery-item"><img src="foto8.webp" alt="Pet 8"></div>
-                <div class="gallery-item"><img src="foto9.webp" alt="Pet 9"></div>
-                <div class="gallery-item"><img src="foto10.webp" alt="Pet 10"></div>
-                <div class="gallery-item"><img src="foto11.webp" alt="Pet 11"></div>
-                <div class="gallery-item"><img src="foto12.webp" alt="Pet 12"></div>
+                <div class="gallery-item"><img src="foto5.webp" alt="Banho e Tosa em cachorro pequeno porte"></div>
+                <div class="gallery-item"><img src="foto6.webp" alt="Pet shop São João do Sul"></div>
+                <div class="gallery-item"><img src="foto7.webp" alt="Cachorro tosado na tesoura"></div>
+                <div class="gallery-item"><img src="foto8.webp" alt="Hidratação em pelos de cachorro"></div>
+                <div class="gallery-item"><img src="foto9.webp" alt="Estética Animal Dudy Magnus"></div>
+                <div class="gallery-item"><img src="foto10.webp" alt="Tosa higiênica em cachorro"></div>
+                <div class="gallery-item"><img src="foto11.webp" alt="Cachorro finalizado com laço"></div>
+                <div class="gallery-item"><img src="foto12.webp" alt="Banho relaxante para pets"></div>
             </div>
         </div>
     
         <div class="marquee-wrapper">
             <div class="marquee-track scroll-reverse">
-                <div class="gallery-item"><img src="foto13.webp" alt="Pet 13"></div>
-                <div class="gallery-item"><img src="foto14.webp" alt="Pet 14"></div>
-                <div class="gallery-item"><img src="foto15.webp" alt="Pet 15"></div>
-                <div class="gallery-item"><img src="foto16.webp" alt="Pet 16"></div>
-                <div class="gallery-item"><img src="foto17.webp" alt="Pet 17"></div>
-                <div class="gallery-item"><img src="foto18.webp" alt="Pet 18"></div>
-                <div class="gallery-item"><img src="foto19.webp" alt="Pet 19"></div>
-                <div class="gallery-item"><img src="foto20.webp" alt="Pet 20"></div>
-                <div class="gallery-item"><img src="foto21.webp" alt="Pet 21"></div>
+                <div class="gallery-item"><img src="foto13.webp" alt="Corte de unhas pet"></div>
+                <div class="gallery-item"><img src="foto14.webp" alt="Tosa bebê em Shih Tzu"></div>
+                <div class="gallery-item"><img src="foto15.webp" alt="Banho em cachorro grande porte"></div>
+                <div class="gallery-item"><img src="foto16.webp" alt="Táxi Dog São João do Sul"></div>
+                <div class="gallery-item"><img src="foto17.webp" alt="Penteado em cachorro"></div>
+                <div class="gallery-item"><img src="foto18.webp" alt="Cachorro feliz no pet shop"></div>
+                <div class="gallery-item"><img src="foto19.webp" alt="Tosa na máquina"></div>
+                <div class="gallery-item"><img src="foto20.webp" alt="Estética animal profissional"></div>
+                <div class="gallery-item"><img src="foto21.webp" alt="Dudy Magnus Groomer"></div>
     
-                <div class="gallery-item"><img src="foto13.webp" alt="Pet 13"></div>
-                <div class="gallery-item"><img src="foto14.webp" alt="Pet 14"></div>
-                <div class="gallery-item"><img src="foto15.webp" alt="Pet 15"></div>
-                <div class="gallery-item"><img src="foto16.webp" alt="Pet 16"></div>
-                <div class="gallery-item"><img src="foto17.webp" alt="Pet 17"></div>
-                <div class="gallery-item"><img src="foto18.webp" alt="Pet 18"></div>
-                <div class="gallery-item"><img src="foto19.webp" alt="Pet 19"></div>
-                <div class="gallery-item"><img src="foto20.webp" alt="Pet 20"></div>
-                <div class="gallery-item"><img src="foto21.webp" alt="Pet 21"></div>
+                <div class="gallery-item"><img src="foto13.webp" alt="Corte de unhas pet"></div>
+                <div class="gallery-item"><img src="foto14.webp" alt="Tosa bebê em Shih Tzu"></div>
+                <div class="gallery-item"><img src="foto15.webp" alt="Banho em cachorro grande porte"></div>
+                <div class="gallery-item"><img src="foto16.webp" alt="Táxi Dog São João do Sul"></div>
+                <div class="gallery-item"><img src="foto17.webp" alt="Penteado em cachorro"></div>
+                <div class="gallery-item"><img src="foto18.webp" alt="Cachorro feliz no pet shop"></div>
+                <div class="gallery-item"><img src="foto19.webp" alt="Tosa na máquina"></div>
+                <div class="gallery-item"><img src="foto20.webp" alt="Estética animal profissional"></div>
+                <div class="gallery-item"><img src="foto21.webp" alt="Dudy Magnus Groomer"></div>
             </div>
         </div>
     </section>
@@ -479,7 +503,7 @@
             <h2>Nossa Localização</h2>
             <p>Venha nos visitar! Estamos localizados no coração de São João do Sul.</p>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3481.8361210674193!2d-49.8037984!3d-29.228374499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952213a9a1a4779f%3A0x29802344a0faf6b6!2sDudy%20magnus%20estetica%20animal!5e0!3m2!1spt-BR!2sbr!4v1768699260298!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3481.8361219057624!2d-49.806373323824076!3d-29.228374475344612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952213a9a1a4779f%3A0x29802344a0faf6b6!2sDudy%20magnus%20estetica%20animal!5e0!3m2!1spt-BR!2sbr!4v1769194001353!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <footer>
@@ -518,7 +542,7 @@
         </div>
         <div class="copyright">
             <p>© 2026 Dudy Magnus Estética Animal. Todos direitos reservados.</p>
-            <span class="dev-signature">Desenvolvido por <strong>EPIVERSO</strong></span>
+            <span class="dev-signature">Desenvolvido por <a href="https://epiverso.com" target="_blank">EPIVERSO</a></span>
         </div>
     </footer>
 
@@ -533,12 +557,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
